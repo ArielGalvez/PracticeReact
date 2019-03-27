@@ -3,7 +3,7 @@ import Avatar from '../Avatar';
 import './PersonPill.css';
 
 function PersonPill({src, name, width, heigth}) {
-    console.log(width, heigth)
+    // console.log(width, heigth)
     const stylePersonPill = {
         width: width,
         heigth: heigth,
@@ -11,7 +11,7 @@ function PersonPill({src, name, width, heigth}) {
     };
     return (
         <div className="person-pill" style={stylePersonPill}>
-            <Avatar src={src} name={name} size={heigth}></Avatar>
+            <Avatar src={src} name={name} size={heigth} />
             <p>{name}</p>
         </div>
     );

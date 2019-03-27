@@ -1,15 +1,16 @@
-
+/* 
 :root{
     --lightIvory: #EDFFE3;
-}
+} */
 
 .toolBar {
-    background-color: #6E859B;
+    background-color: var(--primary);
     color: var(--lightIvory);
     padding: 30 30;
     width: 100%;
     height: 38px;
     align-content:center;
+    margin-bottom: 10px;
 }
 .toolBar label{
     font-size: 16px;
@@ -17,20 +18,4 @@
     font-weight: bold;
     top: 0;
     padding: 5px 50px 5px 50px;
-}
-.left{
-    float: left;
-}
-.right{
-    float: right;
-}
-button {
-    background-color: #94A6BC;
-    border: none;
-    margin: 4px 2px;
-}
-button:hover {
-    background-color: #516477;
-    border: none;
-    cursor: pointer;
 }

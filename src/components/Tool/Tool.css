@@ -1,0 +1,17 @@
+.tool {
+  background-color: var(--secondary);
+  border: none;
+  margin: 4px 2px;
+  border-radius: 4px;
+}
+.tool:hover {
+  background-color: var(--whenHover);
+  border: none;
+  cursor: pointer;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}

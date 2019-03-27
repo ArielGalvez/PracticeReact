@@ -1,26 +1,17 @@
 import React from 'react'
-import MaterialIcon from 'material-icons-react';
-import './toolbar.css';
+import './Toolbar.css';
+import Tool from '../Tool';
 
 
-function ToolBar({title, actions}) {
+function Toolbar({title, actions}) {
+    const tools = actions.map((action, index) => <Tool key={index} props={action} />);
     return (
         <div className="toolBar">
-            <label className={actions.position}>{title} </label>
-
-            {( () => {
-                let container = [];
-                actions.forEach((action, index) => {
-                    container.push(
-                    <button key={index} onClick={action.onClick} className={action.position}>
-                        <MaterialIcon icon={action.icon} color="white" />
-                    </button>)
-                });
-                return container;
-            })()}
+            <label className={actions.position}>{title}</label>
+            {tools}
         </div>
     );
 }
 
 
-export default ToolBar;
+export default Toolbar;

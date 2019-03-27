@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ToolBar from './components/toolbar';
+import Toolbar from './components/Toolbar';
 // import Avatar from './components/Avatar';
 // import PersonPill from './components/PersonPill';
 import PeoplePicker from './components/PeoplePicker';
@@ -52,8 +52,8 @@ class App extends Component {
         }
       ],
       personPillConfig: {
-        width: '500px',
-        heigth: '100px'
+        width: '400px',
+        heigth: '80px'
       }
     };
   }
@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ToolBar title={this.state.title} actions={this.state.actions}/>
+        <Toolbar title={this.state.title} actions={this.state.actions}/>
         {/* <PersonPill name={this.state.people[1].name} src={this.state.people[1].avatar}></PersonPill> */}
         <PeoplePicker people={this.state.people} width={this.state.personPillConfig.width} heigth={this.state.personPillConfig.heigth}></PeoplePicker>
       </div>

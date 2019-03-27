@@ -1,15 +1,18 @@
 .person-pill {
     /* display: inline; */
     float: left;
-    background-color: #6E859B;
+    background-color: var(--primary);
     padding: 5px;
     margin: 5px;
     position: relative;
 }
 .person-pill:hover {
-    background-color: #94A6BC;
+    background-color: var(--secondary);
 }
 
+.person-pill:hover p{
+    color: var(--lightIvory);
+}
 p {
     display: inline;
     top: 0px;
