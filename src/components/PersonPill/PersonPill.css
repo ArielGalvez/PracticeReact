@@ -1,0 +1,23 @@
+.person-pill {
+    /* display: inline; */
+    float: left;
+    background-color: #6E859B;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+}
+.person-pill:hover {
+    background-color: #94A6BC;
+}
+
+p {
+    display: inline;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    font-size: 20px;
+    position: absolute;
+    color: white;
+    text-align: center;
+}
