@@ -9,10 +9,10 @@ function Avatar({src, name, size}) {
         return firstName+' '+lastName;
     };
 
-    const getNumSize = () => {
-        const strSize = size.substring(0, size.length-2);
-        return parseInt(strSize, 10);
-    };
+    // const getNumSize = () => {
+    //     const strSize = size.substring(0, size.length-2);
+    //     return parseInt(strSize, 10);
+    // };
 
     const styleSize = {
         width: size, 
@@ -21,9 +21,9 @@ function Avatar({src, name, size}) {
     };
     
     const fakeImg = <div className="circle" style={styleSize} ><label>{getInitials(name)}</label></div>
-    const img= <img src={src} alt={name} size={size} style={styleSize}/>
+    const img= <img src={src} alt={name} /* size={size} */ style={styleSize}/>
     let content = src? img: fakeImg;
-    getNumSize();
+    // getNumSize();
     return (
         <div className="avatar">
             {content}

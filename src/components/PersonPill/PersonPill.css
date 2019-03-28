@@ -10,17 +10,29 @@
     background-color: var(--secondary);
 }
 
-.person-pill:hover p{
+.person-pill:hover .content-pill h3{
     color: var(--lightIvory);
 }
-p {
+.person-pill .content-pill {
     display: inline;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    font-size: 20px;
-    position: absolute;
+    float: left;
+    width: calc(100% - 80px);
+    height: 100%;
+}
+
+.person-pill .content-pill h3{
+    float: left;
     color: white;
+    /* padding: 5px; */
+    margin: 5px;
+    width: 95%;
+    font-size: 20px;
     text-align: center;
+}
+
+.content-pill p{
+    /* display: initial; */
+    display: inline;
+    color: white;
+    padding-left: 20px;
 }

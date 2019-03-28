@@ -14,7 +14,14 @@
 .circle {
     display: table;
     background-color: var(--baseFill);
-    width: 100px;
+    /* width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 50%; */
+}
+.avatar {
+    float: left;
+}
+
+.circle {
+    float: left;
 }
