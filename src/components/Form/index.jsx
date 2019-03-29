@@ -42,7 +42,7 @@ class Form extends Component {
             newPeople.forEach(person => {
                 if(person.id===id)
                 {
-                    person.isActive= false;
+                    person.isActive = false;
                 }
             });
             const index = newMembers.indexOf(id);
@@ -53,7 +53,7 @@ class Form extends Component {
             newPeople.forEach(person => {
                 if(person.id===id)
                 {
-                    person.isActive= true;
+                    person.isActive = true;
                 }
             });
         }
@@ -69,9 +69,8 @@ class Form extends Component {
   render() {
     console.log(this.state.members);
     return (
-      <div className="Form-component">
+      <div className="Form">
         <h1>{'Form component'}</h1>
-        {/* <PersonPill name={this.state.people[1].name} src={this.state.people[1].avatar}></PersonPill> */}
         <PeoplePicker people={this.state.people} activeMembers={this.state.members} width={this.state.personPillConfig.width} heigth={this.state.personPillConfig.heigth} onChange={this.handlePeople} />
       </div>
     );

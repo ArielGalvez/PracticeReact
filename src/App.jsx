@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Toolbar from './components/Toolbar';
-// import Avatar from './components/Avatar';
-// import PersonPill from './components/PersonPill';
-// import PeoplePicker from './components/PeoplePicker';
 import Form from './components/Form';
+import ImputField from './components/ImputField';
 
 class App extends Component {
   constructor(props){
@@ -34,38 +32,22 @@ class App extends Component {
           icon: 'local_cafe'
         }
       ],
-      // people: [
-      //   {
-      //     id: "7c965aad-9986-4eb5-b80b-98f1d5ae2456",
-      //     name: "Gregory Frederickson", 
-      //     isActive: true,
-      //     avatar: "https://lh3.googleusercontent.com/-8Y5l_IGCkc8/AAAAAAAAAAI/AAAAAAAAAAc/hP8pp2loX3I/s96-c/photo.jpg"
-      //   },
-      //   {
-      //     id: "7c965aad-9986-4eb5-b80b-98f1d5ae2123",
-      //     avatar: "https://lh4.googleusercontent.com/-Mq3J6qJaPdA/AAAAAAAAAAI/AAAAAAAAAAc/XRSfECwWYEA/s96-c/photo.jpg",
-      //     email: "engageme.demo1@gmail.com",
-      //     name: "Anthony Johnson"
-      //   },
-      //   {
-      //     id: "7c965aad-9986-4eb5-b80b-12f1d5ae2123",
-      //     name: "Akira Yamaoka"
-      //   }
-      // ],
-      // personPillConfig: {
-      //   width: '400px',
-      //   heigth: '80px'
+      // dataLabel={
+      //   onChange:, autoFocus, errorMessage, label, placeHolder
       // }
     };
+    this.getValue=(value)=>{
+      console.log(value);
+    }
   }
 
   render() {
     return (
       <div className="App">
         <Toolbar title={this.state.title} actions={this.state.actions}/>
-        {/* <PersonPill name={this.state.people[1].name} src={this.state.people[1].avatar}></PersonPill> */}
-        {/* <PeoplePicker people={this.state.people} width={this.state.personPillConfig.width} heigth={this.state.personPillConfig.heigth} /> */}
         <Form  />
+        <ImputField onChange={this.getValue} autoFocus={true} errorMessage={'ocurrio un error'} label={'nombre:'} placeHolder={'input con error'}/>
+        <ImputField onChange={this.getValue} autoFocus={true} label={'apellido:'} placeHolder={'input sin error'}/>
       </div>
     );
   }
