@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Form.css';
-// import Avatar from './components/Avatar';
 import PeoplePicker from '../PeoplePicker';
 
 class Form extends Component {
@@ -11,14 +10,14 @@ class Form extends Component {
             {
                 id: "7c965aad-9986-4eb5-b80b-98f1d5ae2456",
                 name: "Gregory Frederickson", 
-                isActive: false,
+                isActive: true,
                 avatar: "https://lh3.googleusercontent.com/-8Y5l_IGCkc8/AAAAAAAAAAI/AAAAAAAAAAc/hP8pp2loX3I/s96-c/photo.jpg"
             },
             {
                 id: "7c965aad-9986-4eb5-b80b-98f1d5ae2123",
                 avatar: "https://lh4.googleusercontent.com/-Mq3J6qJaPdA/AAAAAAAAAAI/AAAAAAAAAAc/XRSfECwWYEA/s96-c/photo.jpg",
                 email: "engageme.demo1@gmail.com",
-                isActive: false,
+                isActive: true,
                 name: "Anthony Johnson"
             },
             {
@@ -35,39 +34,24 @@ class Form extends Component {
     };
 
     this.handlePeople = (id) => {
-        // console.log('algo', id);
         const newMembers = [...this.state.members];
-        const newPeople = [...this.state.people];
         if(newMembers.includes(id)){
-            newPeople.forEach(person => {
-                if(person.id===id)
-                {
-                    person.isActive = false;
-                }
-            });
             const index = newMembers.indexOf(id);
             newMembers.splice(index, 1);
         }
         else{
             newMembers.push(id);
-            newPeople.forEach(person => {
-                if(person.id===id)
-                {
-                    person.isActive = true;
-                }
-            });
         }
         this.setState({
-            ...this.state,
-            members: newMembers,
-            people: newPeople
+          ...this.state,
+          members: newMembers,
         });
-        // console.log(newMembers);
+        console.log(newMembers);
     }
   }
 
   render() {
-    console.log(this.state.members);
+    // console.log(this.state.members);
     return (
       <div className="Form">
         <h1>{'Form component'}</h1>

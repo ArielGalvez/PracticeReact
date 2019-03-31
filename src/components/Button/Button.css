@@ -1,0 +1,62 @@
+.Button {
+  box-sizing: border-box;
+  float: left;
+  display: block;
+  margin: 15px;
+  padding:5px 10px 5px 10px;
+  font-size: 1em;
+  background-color: #636364;
+  border: none;
+  border-radius: 4px;
+  height: 38px;
+  border-radius: 1.5em;
+  opacity: 0.9;
+}
+.Button:disabled{
+  opacity: 0.5;
+}
+.primary {
+  background-color: #33335e;
+}
+.secondary {
+  background-color: #b82e2e;
+}
+
+.Button span {
+  top: 0px;
+  color: white;
+  vertical-align: middle;
+  padding: 10px;
+}
+.Button:focus {
+  opacity: 1;
+  outline: none;
+}
+.Button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.Button:disabled:hover{
+  cursor: no-drop;
+  opacity: 0.5;
+}
+
+/* spinner from: https://stephanwagner.me/only-css-loading-spinner */
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  float: left;
+  top: 0px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  margin-right: -20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+}

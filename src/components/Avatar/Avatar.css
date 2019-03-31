@@ -1,7 +1,3 @@
-/* :root {
-    --lightIvory: #EDFFE3;
-    --base: #17698f;
-} */
 
 .circle label {
     font-size: 30px;
@@ -11,13 +7,12 @@
     text-align: center;
     font-weight: bold;
 }
+
 .circle {
     display: table;
     background-color: var(--baseFill);
-    /* width: 100px;
-    height: 100px;
-    border-radius: 50%; */
 }
+
 .avatar {
     float: left;
 }

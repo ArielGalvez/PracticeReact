@@ -1,0 +1,64 @@
+
+.InputField{
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  display: block;
+  margin: 10px;
+  padding: 0px;
+  border: 0px;
+  font-size: 1em;
+  /* width: 700px; */
+}
+.InputField *{
+  box-sizing: border-box;
+}
+
+.InputField>input, .InputField>label{
+  padding: 0.8em;
+  margin: 0.5em;
+  width: 100%;
+}
+.InputField>input{
+  border: 1px solid var(--baseFill);
+  border-radius: 1.5em;
+  outline: none;
+}
+.InputField>label{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 6px;
+  color: var(--secondary);
+  /* display: none; */
+}
+input:focus + label, input:valid + label{
+  color: var(--baseFill);
+  font-size: 0.8em;
+  width: auto;
+  height: 1.3em;
+  padding: 0px 0.5em 0px 0.5em;
+  margin: 0px;
+  /* outline: 1px solid red;  */
+  /*for debugigng purposes only*/
+  background: white;
+  transition: 0.2s ease-in-out;
+  top: 0em;
+  left: 2em;
+  /* display: inherit; */
+}
+.InputField p {
+  position: absolute;
+  top: 25px;
+  color: red;
+  padding: 0.8em;
+  margin: 0.5em;
+  width: 100%;
+}
+.borderError>input {
+  border: 1px solid red;
+}
+.borderError input:focus + label, .borderError input:valid + label{
+  color: red;
+}

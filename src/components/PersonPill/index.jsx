@@ -4,13 +4,17 @@ import './PersonPill.css';
 
 function PersonPill({id, src, name, width, heigth, onChange, active}) {
     // console.log(width, heigth)
+    const calculateRadius = () => {
+        const number = (parseInt(heigth.substring(0, heigth.length), 10)/2)+10;
+        return number;
+    }
+
     let stylePersonPill = {
         width: width,
         heigth: heigth,
-        borderRadius: '50px'
+        borderRadius: calculateRadius()+'px'
     };
     const onPersonClick = () => {
-    //    console.log(active)
         onChange(id);
     }
 
