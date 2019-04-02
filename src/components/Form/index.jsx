@@ -54,7 +54,6 @@ class Form extends Component {
     // console.log(this.state.members);
     return (
       <div className="Form">
-        <h1>{'Form component'}</h1>
         <PeoplePicker people={this.state.people} activeMembers={this.state.members} width={this.state.personPillConfig.width} heigth={this.state.personPillConfig.heigth} onChange={this.handlePeople} />
       </div>
     );
