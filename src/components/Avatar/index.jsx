@@ -1,5 +1,7 @@
 import React from 'react';
 import './Avatar.css';
+import PropTypes from 'prop-types';
+
 function Avatar({src, name, size}) {
 
     const getInitials = userName => {
@@ -23,6 +25,18 @@ function Avatar({src, name, size}) {
             {content}
         </div>
     );
+}
+
+Avatar.defaultProps = {
+    src: '',
+    name: '',
+    size: '50px'
+}
+
+Avatar.propTypes = {
+    src: PropTypes.string,
+    name: PropTypes.string,
+    size: PropTypes.string
 }
 
 export default Avatar;

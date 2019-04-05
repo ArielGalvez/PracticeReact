@@ -18,7 +18,7 @@ function PersonPill({id, src, name, width, heigth, onChange, active}) {
         onChange(id);
     }
 
-    const classPill = active ? 'hasOpacity' : '';
+    const classPill = !active ? 'hasOpacity' : '';
     return (
         <div className={`${classPill} person-pill`} style={stylePersonPill} onClick= {onPersonClick}>
             <Avatar src={src} name={name} size={heigth}/>

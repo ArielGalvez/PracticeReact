@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Toolbar from './components/Toolbar';
-import CreateTeam from './views/CreateTeam';
+import Routes from './Routes';
 
 class App extends Component {
   constructor(props){
@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar title={this.state.title} actions={this.state.actions}/>
-        <CreateTeam></CreateTeam>
+        <Routes></Routes>
       </div>
     );
   }
