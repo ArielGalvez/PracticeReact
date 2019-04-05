@@ -1,5 +1,6 @@
 import React from 'react';
 import PersonPill from '../PersonPill';
+import './PeoplePicker.css';
 function PeoplePicker({people, activeMembers, width, heigth, onChange}) {
     // const isSelected = (id) => {
     //     return activeMembers.includes(person.id);
