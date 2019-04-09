@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import '. Navbar.css';
 import Toolbar from '../../components/Toolbar';
-import {withRouter} from "react-router";
+import {withRouter} from 'react-router';
 
 class Navbar extends Component {
   constructor(props){
@@ -13,19 +13,19 @@ class Navbar extends Component {
           onClick : () => {
             this.redirectTo('/teams/create');
           },
-          position: 'right',
-          icon: 'work'
+          position: 'left',
+          icon: 'group_add'
         },
         {
           onClick : ()=> {
-            this.redirectTo('/teams/create');
+            this.redirectTo('/teams/edit');
           },
           position: 'left',
-          icon: 'pets'
+          icon: 'edit'
         },
         {
           onClick : ()=> {
-            this.redirectTo('/teams/create');
+            this.redirectTo('/teams/edit');
           },
           position: 'right',
           icon: 'local_cafe'
