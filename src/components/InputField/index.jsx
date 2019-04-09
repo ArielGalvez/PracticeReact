@@ -1,5 +1,6 @@
 import React from 'react';
 import './InputField.css';
+import PropTypes from 'prop-types';
 
 function InputField({onChange, autoFocus, errorMessage, label, placeHolder}) {
 
@@ -18,3 +19,15 @@ function InputField({onChange, autoFocus, errorMessage, label, placeHolder}) {
 }
 
 export default InputField;
+
+InputField.defaultProps = {
+    autoFocus: false,
+    label: false
+}
+
+InputField.propTypes = {
+    onChange: PropTypes.func,
+    autoFocus: PropTypes.bool,
+    errorMessage: PropTypes.string,
+    label: PropTypes.string,
+}

@@ -17,7 +17,7 @@ function ActionForm({ actions, title, children }) {
 
 ActionForm.defaultProps = {
     actions: [],
-    title: 'untitled'
+    title: ''
 }
 
 ActionForm.propTypes = {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './CreateTeam.css';
-import Form from '../components/Form';
+import TeamForm from '../components/TeamForm';
 import ActionForm from '../../../components/ActionForm';
+import Navbar from '../../Navbar'; 
 
 class CreateTeam extends Component {
   constructor(props) {
@@ -147,9 +148,10 @@ class CreateTeam extends Component {
   render() {
     return (
       <div className="CreateTeam">
+        <Navbar></Navbar> 
         <ActionForm title={this.state.title} actions={this.state.actions} >
-          <Form people={this.state.people} activeMembers={this.state.members} onPeopleChange={this.handlePeople} onChangeName={this.getName} onChangeLastName={this.getLastName} onChangeNameTeam={this.getNameTeam}>
-          </Form>
+          <TeamForm people={this.state.people} activeMembers={this.state.members} onPeopleChange={this.handlePeople} onChangeName={this.getName} onChangeLastName={this.getLastName} onChangeNameTeam={this.getNameTeam}>
+          </TeamForm>
         </ActionForm>
       </div>
     );

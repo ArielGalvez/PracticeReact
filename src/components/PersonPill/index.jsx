@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '../Avatar';
 import './PersonPill.css';
+import PropTypes from 'prop-types';
 
 function PersonPill({id, src, name, width, heigth, onChange, active}) {
     // console.log(width, heigth)
@@ -28,6 +29,22 @@ function PersonPill({id, src, name, width, heigth, onChange, active}) {
             </div>
         </div>
     );
+}
+
+PersonPill.defaultProps = {
+    width: '400px',
+    heigth: '80px',
+    active: false
+}
+
+PersonPill.propTypes = {
+    id: PropTypes.string,
+    name: PropTypes.string,
+    avatar: PropTypes.string,
+    width: PropTypes.string,
+    heigth: PropTypes.string,
+    onChange: PropTypes.func,
+    active: PropTypes.bool
 }
 
 export default PersonPill;

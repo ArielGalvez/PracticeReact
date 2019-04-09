@@ -2,7 +2,6 @@ import React from 'react'
 import './Toolbar.css';
 import Tool from '../Tool';
 
-
 function Toolbar({title, actions}) {
     const tools = actions.map((action, index) => <Tool key={index} props={action} />);
     return (

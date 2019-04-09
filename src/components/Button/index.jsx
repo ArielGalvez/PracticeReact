@@ -30,7 +30,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    // onClick: ''
+    onClick: PropTypes.func,
     disabled: PropTypes.bool,
     text: PropTypes.string,
     icon: PropTypes.string,
