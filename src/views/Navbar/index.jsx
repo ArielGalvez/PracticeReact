@@ -38,10 +38,14 @@ class Navbar extends Component {
     this.props.history.push(path);
   }
 
+  handleTitle = () => {
+    this.redirectTo('/');
+  }
+
   render() {
     return (
       <div className= "Navbar">
-        <Toolbar title={this.state.title} actions={this.state.actions}/>
+        <Toolbar title={this.state.title} actions={this.state.actions} onClick={this.handleTitle}/>
       </div>
     );
   }

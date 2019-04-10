@@ -30,33 +30,24 @@ class EditTeam extends Component {
       ],
       members: [],
       title: 'Edit Team',
-      iconsMaterial: [
-        'person_add',
-        'person',
-        'people'
-      ],
       actions: [
         {
-          text: 'Register Member',
-          onClick: this.onClickButton,
+          text: 'Update',
+          onClick: this.onClickButtonUpdateTeam,
           type: 'primary',
           isLoading: false,
-          icon: 'person_add'
+          icon: 'check_circle'
         },
         {
-          text: 'Create Team',
-          onClick: this.onClickButtonCreateTeam,
+          text: 'Cancel',
+          onClick: () => {
+              console.log('cancel is press')
+          },
           type: 'secondary',
           isLoading: false,
-          icon: 'people'
+          icon: 'cancel'
         }
       ],
-      person: {
-        name: '',
-        lastName: '',
-        messageErrorName: '',
-        messageErrorLastName: ''
-      },
       nameTeamValue: ''
     };
   }
@@ -77,13 +68,13 @@ class EditTeam extends Component {
   }
 
 
-  onClickButtonCreateTeam = (event) =>{
+  onClickButtonUpdateTeam = (event) =>{
     if(this.state.nameTeamValue){
       console.log(this.state.nameTeamValue);
       console.log(this.state.members);
     }
     else{
-      console.log(`please complete the input of name team`);
+      console.log('please complete the input of name team');
     }
   }
 
