@@ -7,28 +7,31 @@ class Navbar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: 'Services',
+      title: 'Teams',
       actions: [
         {
           onClick : () => {
             this.redirectTo('/teams/create');
           },
           position: 'left',
-          icon: 'group_add'
+          icon: 'group_add',
+          text: 'create team'
         },
         {
           onClick : ()=> {
             this.redirectTo('/teams/edit');
           },
           position: 'left',
-          icon: 'edit'
+          icon: 'edit',
+          text: 'edit team'
         },
         {
           onClick : ()=> {
-            this.redirectTo('/teams/edit');
+            this.redirectTo('/');
           },
           position: 'right',
-          icon: 'local_cafe'
+          icon: 'home',
+          text: 'home'
         }
       ],
     };
@@ -50,7 +53,5 @@ class Navbar extends Component {
     );
   }
 }
-//instalar slide
 
-// export default Navbar;
 export default withRouter(Navbar);

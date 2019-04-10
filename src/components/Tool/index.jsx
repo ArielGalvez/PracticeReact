@@ -1,30 +1,31 @@
 import React from 'react';
 import MaterialIcon from 'material-icons-react';
 import './Tool.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-function Tool({props}) {
+function Tool({onClick, icon, position, text}) {
   return (
-    <button className={'tool '+props.position} onClick={props.onClick}>
-      <MaterialIcon icon={props.icon} color="white"/>
+    <button className={`tool ${position}`} onClick={onClick}>
+      <div className="tooltip">
+        <MaterialIcon icon={icon} color="white"/>
+        <span className="tooltiptext">{text}</span>
+      </div>
     </button>
   );
 }
 
-/* Tool.defaultProps = {
-  width: '400px',
-  heigth: '80px',
-  active: false
+Tool.defaultProps = {
+  onClick: () => {
+    console.log('tool is clicked');
+  },
+  position: 'left', // must to be: left or right
 }
 
 Tool.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  avatar: PropTypes.string,
-  width: PropTypes.string,
-  heigth: PropTypes.string,
-  onChange: PropTypes.func,
-  active: PropTypes.bool
-} */
+  onClick: PropTypes.func,
+  icon: PropTypes.string,
+  position: PropTypes.string,
+  text: PropTypes.string
+}
 
 export default Tool;
