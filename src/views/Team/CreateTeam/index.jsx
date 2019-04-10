@@ -2,33 +2,39 @@ import React, { Component } from 'react';
 import './CreateTeam.css';
 import TeamForm from '../components/TeamForm';
 import ActionForm from '../../../components/ActionForm';
-import Navbar from '../../Navbar'; 
+import Navbar from '../../Navbar';
 
 class CreateTeam extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      people : [
+      people: [
         {
-            id: "7c965aad-9986-4eb5-b80b-98f1d5ae2456",
-            name: "Gregory Frederickson", 
-            isActive: true,
-            avatar: "https://lh3.googleusercontent.com/-8Y5l_IGCkc8/AAAAAAAAAAI/AAAAAAAAAAc/hP8pp2loX3I/s96-c/photo.jpg"
+          id: "1",
+          name: "Gregory Frederickson",
+          isActive: true,
+          avatar: "https://lh3.googleusercontent.com/-8Y5l_IGCkc8/AAAAAAAAAAI/AAAAAAAAAAc/hP8pp2loX3I/s96-c/photo.jpg"
         },
         {
-            id: "7c965aad-9986-4eb5-b80b-98f1d5ae2123",
-            avatar: "https://lh4.googleusercontent.com/-Mq3J6qJaPdA/AAAAAAAAAAI/AAAAAAAAAAc/XRSfECwWYEA/s96-c/photo.jpg",
-            email: "engageme.demo1@gmail.com",
-            isActive: true,
-            name: "Anthony Johnson"
+          id: "2",
+          avatar: "https://lh4.googleusercontent.com/-Mq3J6qJaPdA/AAAAAAAAAAI/AAAAAAAAAAc/XRSfECwWYEA/s96-c/photo.jpg",
+          email: "engageme.demo1@gmail.com",
+          isActive: true,
+          name: "Anthony Johnson"
         },
         {
-            id: "7c965aad-9986-4eb5-b80b-12f1d5ae2123",
-            isActive: false,
-            name: "Akira Yamaoka"
+          id: "3",
+          isActive: false,
+          name: "Akira Yamaoka"
+        },
+        {
+          id: "4",
+          isActive: false,
+          name: "Moon Butterly"
         }
       ],
       members: [],
+      nameTeamValue: '',
       title: 'Create Team',
       actions: [
         {
@@ -48,33 +54,31 @@ class CreateTeam extends Component {
           icon: 'cancel'
         }
       ],
-      nameTeamValue: ''
     };
   }
 
   handlePeople = (id) => {
     const newMembers = [...this.state.members];
-    if(newMembers.includes(id)){
-        const index = newMembers.indexOf(id);
-        newMembers.splice(index, 1);
+    if (newMembers.includes(id)) {
+      const index = newMembers.indexOf(id);
+      newMembers.splice(index, 1);
     }
-    else{
-        newMembers.push(id);
+    else {
+      newMembers.push(id);
     }
     this.setState({
       ...this.state,
       members: newMembers,
     });
-    // console.log(newMembers);
   }
 
-  onClickButtonCreateTeam = (event) =>{
-    if(this.state.nameTeamValue){
+  onClickButtonCreateTeam = (event) => {
+    if (this.state.nameTeamValue && this.state.members.length > 0) {
       console.log(this.state.nameTeamValue);
       console.log(this.state.members);
     }
-    else{
-      console.log(`please complete the input of name team`);
+    else {
+      console.log('please select members and insert name team');
     }
   }
 
@@ -82,14 +86,14 @@ class CreateTeam extends Component {
     this.setState({
       nameTeamValue: value
     });
-  }  
+  }
 
   render() {
     return (
       <div className="CreateTeam">
-        <Navbar></Navbar> 
+        <Navbar></Navbar>
         <ActionForm title={this.state.title} actions={this.state.actions} >
-          <TeamForm people={this.state.people} activeMembers={this.state.members} onPeopleChange={this.handlePeople} onChangeName={this.getName} onChangeLastName={this.getLastName} onChangeNameTeam={this.getNameTeam}>
+          <TeamForm people={this.state.people} activeMembers={this.state.members} onPeopleChange={this.handlePeople} onChangeNameTeam={this.getNameTeam}>
           </TeamForm>
         </ActionForm>
       </div>
