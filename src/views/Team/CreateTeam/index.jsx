@@ -30,33 +30,24 @@ class CreateTeam extends Component {
       ],
       members: [],
       title: 'Create Team',
-      iconsMaterial: [
-        'person_add',
-        'person',
-        'people'
-      ],
       actions: [
         {
-          text: 'Register Member',
-          onClick: this.onClickButton,
+          text: 'Register',
+          onClick: this.onClickButtonCreateTeam,
           type: 'primary',
           isLoading: false,
-          icon: 'person_add'
+          icon: 'add_circle'
         },
         {
-          text: 'Create Team',
-          onClick: this.onClickButtonCreateTeam,
+          text: 'Cancel',
+          onClick: () => {
+            console.log('cancel is press');
+          },
           type: 'secondary',
           isLoading: false,
-          icon: 'people'
+          icon: 'cancel'
         }
       ],
-      person: {
-        name: '',
-        lastName: '',
-        messageErrorName: '',
-        messageErrorLastName: ''
-      },
       nameTeamValue: ''
     };
   }
@@ -77,32 +68,6 @@ class CreateTeam extends Component {
     // console.log(newMembers);
   }
 
-  onClickButton = (event) =>{
-    if(this.state.person.name && this.state.person.lastName){
-      const newPeople = this.state.people;
-      newPeople.push({
-        id: `id${this.state.person.name[0]}per${this.state.person.lastName[0]}`,
-        isActive: false,
-        name: `${this.state.person.name} ${this.state.person.lastName}`
-      })
-      this.setState({
-        people: newPeople
-      });
-      console.log(`person ${this.state.person.name} ${this.state.person.lastName} has registered..`);
-    }
-    else{
-      const newPerson = this.state.person;
-      newPerson.messageErrorName = newPerson.name? '': 'Name is missing!';
-      newPerson.messageErrorLastName = newPerson.lastName? '': 'Last name is missing!';
-      
-      this.setState({
-        ...this.state,
-        person: newPerson,
-      });
-      console.log(`please complete the inputs`);
-    }
-  }
-
   onClickButtonCreateTeam = (event) =>{
     if(this.state.nameTeamValue){
       console.log(this.state.nameTeamValue);
@@ -111,32 +76,6 @@ class CreateTeam extends Component {
     else{
       console.log(`please complete the input of name team`);
     }
-  }
-
-  getName = (value) =>{
-    const newPerson = this.state.person;
-    let newMessageError= '';
-    if(value)
-      newMessageError = (value[0] !== value[0].toUpperCase())? `Name must start with mayus!`: '';
-    newPerson.name = value;
-    newPerson.messageErrorName = newMessageError;
-    this.setState({
-      ...this.state,
-      person: newPerson
-    });
-  }
-
-  getLastName = (value) =>{
-    const newPerson = this.state.person;
-    let newMessageError= '';
-    if(value)
-      newMessageError = (value[0] !== value[0].toUpperCase())? `L N must start with mayus!`: '';
-    newPerson.lastName = value;
-    newPerson.messageErrorLastName = newMessageError;
-    this.setState({
-      ...this.state,
-      person: newPerson
-    });
   }
 
   getNameTeam = (value) => {
