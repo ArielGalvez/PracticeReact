@@ -33,32 +33,15 @@ class EditTeam extends Component {
           name: "Moon Butterly"
         }
       ],
-      nameTeamValue: '',
-      members: [],
-      actions: [
-        {
-          text: 'Update',
-          onClick: this.onClickButtonUpdateTeam,
-          type: 'primary',
-          isLoading: false,
-          icon: 'check_circle'
-        },
-        {
-          text: 'Cancel',
-          onClick: () => {
-            console.log('cancel is press')
-          },
-          type: 'secondary',
-          isLoading: false,
-          icon: 'cancel'
-        }
-      ],
-      title: 'Edit Team',
+      formEdit: {
+        members: [],
+        nameTeamValue: '',
+      }
     };
   }
 
   handlePeople = (id) => {
-    const newMembers = [...this.state.members];
+    const newMembers = [...this.state.formEdit.members];
     if (newMembers.includes(id)) {
       const index = newMembers.indexOf(id);
       newMembers.splice(index, 1);
@@ -66,16 +49,16 @@ class EditTeam extends Component {
     else {
       newMembers.push(id);
     }
+    const newFormEdit = this.state.formEdit;
+    newFormEdit.members = newMembers;
     this.setState({
-      ...this.state,
-      members: newMembers,
+      formEdit: newFormEdit
     });
   }
 
   onClickButtonUpdateTeam = (event) => {
-    if (this.state.nameTeamValue && this.state.members.length > 0) {
-      console.log(this.state.nameTeamValue);
-      console.log(this.state.members);
+    if (this.state.formEdit.nameTeamValue && this.state.formEdit.members.length > 0) {
+      console.log(this.state.formEdit);
     }
     else {
       console.log('please complete the input of name team');
@@ -83,25 +66,44 @@ class EditTeam extends Component {
   }
 
   getNameTeam = (value) => {
+    const newFormEdit = this.state.formEdit;
+    newFormEdit.nameTeamValue = value;
     this.setState({
-      nameTeamValue: value
+      formEdit: newFormEdit
     });
   }
 
   async componentDidMount() {
     const request = await GetTeam('1');
     this.setState({
-      nameTeamValue: request.nameTeamValue,
-      members: request.members
+      formEdit: request
     });
   }
 
   render() {
+    const actions = [
+      {
+        text: 'Update',
+        onClick: this.onClickButtonUpdateTeam,
+        type: 'primary',
+        isLoading: false,
+        icon: 'check_circle'
+      },
+      {
+        text: 'Cancel',
+        onClick: () => {
+          console.log('cancel is press')
+        },
+        type: 'secondary',
+        isLoading: false,
+        icon: 'cancel'
+      }
+    ];
     return (
       <div className="EditTeam">
         <Navbar></Navbar>
-        <ActionForm title={this.state.title} actions={this.state.actions} >
-          <TeamForm people={this.state.people} activeMembers={this.state.members} onPeopleChange={this.handlePeople} onChangeNameTeam={this.getNameTeam} value={this.state.nameTeamValue}>
+        <ActionForm title={'Edit Team'} actions={actions} >
+          <TeamForm people={this.state.people} activeMembers={this.state.formEdit.members} onPeopleChange={this.handlePeople} onChangeNameTeam={this.getNameTeam} value={this.state.formEdit.nameTeamValue}>
           </TeamForm>
         </ActionForm>
       </div>
