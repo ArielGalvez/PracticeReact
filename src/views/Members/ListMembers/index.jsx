@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import actions from './actions';
+/* import { connect } from 'react-redux';
+import actions from './actions'; */
 import TeamForm from '../components/TeamForm';
 import ActionForm from '../../../components/ActionForm';
 import Navbar from '../../Navbar';
-import './CreateTeam.css';
+import './ListMembers.css';
 
-class CreateTeam extends Component {
+class ListMembers extends Component {
   render() {
     const {people, formCreate} = this.props;
-    // console.log('create:',formCreate)
     const actions = [
       {
         text: 'Register',
@@ -28,12 +27,9 @@ class CreateTeam extends Component {
     ];
 
     return (
-      <div className="CreateTeam">
+      <div className="ListMembers">
         <Navbar></Navbar>
-        <ActionForm title={'Create Team'} actions={actions} >
-          <TeamForm people={people} activeMembers={formCreate.members} onPeopleChange={this.handlePeople} onChangeNameTeam={this.changeNameTeam} value={formCreate.nameTeamValue}>
-          </TeamForm>
-        </ActionForm>
+        
       </div>
     );
   }
@@ -57,7 +53,7 @@ class CreateTeam extends Component {
   }
 }
 
-const mapStatesToProps = (state) => {
+/* const mapStatesToProps = (state) => {
   return {
 		people: state.createTeam.people,
 		formCreate: state.createTeam.formCreate,
@@ -71,6 +67,6 @@ const mapDispatchToProps = (dispatch) => {
     updatePeople: (payload) => dispatch(actions.UPDATE_PEOPLE(payload)),
 		updateForm: (payload) => dispatch(actions.UPDATE_FORM(payload))
   }
-}
+} */
 
-export default connect(mapStatesToProps, mapDispatchToProps)(CreateTeam);
+export default /* connect(mapStatesToProps, mapDispatchToProps)( */ListMembers/* ) */;

@@ -1,68 +1,61 @@
+// import { GetTeam } from '../../../services/Rest/TeamRest.jsx';
+
 const initialState = {
   people: [
     {
       id: "1",
       name: "Gregory Frederickson",
-      // isActive: true,
+      isActive: true,
       avatar: "https://lh3.googleusercontent.com/-8Y5l_IGCkc8/AAAAAAAAAAI/AAAAAAAAAAc/hP8pp2loX3I/s96-c/photo.jpg"
     },
     {
       id: "2",
       avatar: "https://lh4.googleusercontent.com/-Mq3J6qJaPdA/AAAAAAAAAAI/AAAAAAAAAAc/XRSfECwWYEA/s96-c/photo.jpg",
       email: "engageme.demo1@gmail.com",
-      // isActive: true,
+      isActive: true,
       name: "Anthony Johnson"
     },
     {
       id: "3",
-      // isActive: false,
+      isActive: false,
       name: "Akira Yamaoka"
     },
     {
       id: "4",
-      // isActive: false,
+      isActive: false,
       name: "Moon Butterly"
-    },
-    {
-      id: "5",
-      // isActive: false,
-      name: "React Redux"
     }
   ],
-  formCreate: {
+  formEdit: {
     members: [],
     nameTeamValue: '',
   }
 };
 
 function RESTORE_FORM(state, action) {
-  const newFormCreate = { ...state.formCreate };
-  newFormCreate.members= [];
-  newFormCreate.nameTeamValue = '';
+  const newFormEdit = { ...state.formEdit };
+  newFormEdit.members= [];
+  newFormEdit.nameTeamValue = '';
   return {
     ...state,
-    formCreate: newFormCreate
+    formEdit: newFormEdit
   };
 }
 function UPDATE_FORM(state, action) {
-  console.log('create update form');
-  const newFormCreate = { ...state.formCreate };
-  // const newFormCreate = JSON.stringify(state.formCreate);
-  newFormCreate.nameTeamValue = action.payload.nameTeamValue;
+  console.log('edit update form');
+  const newFormEdit = { ...state.formEdit };
+  newFormEdit.nameTeamValue = action.payload.nameTeamValue;
   return {
     ...state,
-    formCreate: newFormCreate
+    formEdit: newFormEdit
   };
 }
 
 function UPDATE_PEOPLE(state, action) {
-  console.log('updating in create team');
-  // const newFormCreate = JSON.stringify(state.formCreate);
+  console.log('updating in edit team');
 
-  const newFormCreate = { ...state.formCreate };
-  // const newFormCreate = {...JSON.stringify(state.formCreate)};// nunca volver a hacer esto
-  
-  const newMembers = [...newFormCreate.members];
+  const newFormEdit = { ...state.formEdit };
+  const newMembers = [...newFormEdit.members];
   if (newMembers.includes(action.payload)) {
     const index = newMembers.indexOf(action.payload);
     newMembers.splice(index, 1);
@@ -70,29 +63,29 @@ function UPDATE_PEOPLE(state, action) {
   else {
     newMembers.push(action.payload);
   }
-  newFormCreate.members = newMembers;
+  newFormEdit.members = newMembers
   return {
     ...state,
-    formCreate: newFormCreate
+    formEdit: newFormEdit
   };
 }
 
 function ADD_TEAM(state, action) {
-  const newFormCreate = { ...state.formCreate };
-  if (state.formCreate.nameTeamValue && state.formCreate.members.length > 0) {
-    console.log(state.formCreate);
-    newFormCreate.nameTeamValue = '';
+  const newFormEdit = { ...state.formEdit };
+  if (state.formEdit.nameTeamValue && state.formEdit.members.length > 0) {
+    console.log(state.formEdit);
+    newFormEdit.nameTeamValue = '';
   }
   else {
     console.log('please select members and insert name team');
   }
   return {
     ...state,
-    formCreate: newFormCreate
+    formEdit: newFormEdit
   };
 }
 
-export default function CreateTeam(state = initialState, action) {
+export default function EditTeam(state = initialState, action) {
   switch (action.type) {
     case 'ADD_TEAM':
       return ADD_TEAM(state, action);
